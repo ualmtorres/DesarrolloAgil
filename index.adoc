@@ -1,0 +1,756 @@
+////
+NO CAMBIAR!!
+Codificación, idioma, tabla de contenidos, tipo de documento
+////
+:encoding: utf-8
+:lang: es
+:toc: right
+:toc-title: Tabla de contenidos
+:doctype: book
+:imagesdir: ./images
+:linkattrs:
+
+
+////
+Nombre y título del trabajo
+////
+# Desarrollo ágil
+Servicio de las Tecnologías de la Información y las Comunicaciones - Universidad de Almería
+
+
+// NO CAMBIAR!! (Entrar en modo no numerado de apartados)
+:numbered!: 
+
+
+image:logocloudstic.png[]
+
+[abstract]
+== Resumen
+En un proyecto repetitivo (p.e. instalación anual de software en aulas) se puede aprender del pasado: cómo nos fue, cuánto tiempo duró, cuánto costó. A partir de ahí, para la próxima vemos cómo mejorar el proceso, cómo puedo ahorrar tiempo. Esto permite trabajar sobre el triángulo Alcance-Tiempo-Coste. A partir del modelo definido en base a la experiencia del tiempo y coste de crear un producto (Alcance), puedo estimar tiempo y coste de crear _n_ productos.
+
+Sin embargo, en un proyecto de producto único bajo las condiciones anteriores (p.e. aplicación Campus), no hay experiencia previa. Usar metodologías clásicas para este tipo de proyecto tranquiliza inicialmente al cliente porque se le da una fecha y un presupuesto que *rara vez se cumple*. Realmente, a lo que se llega es a proyectos inacabados, retrasados, con diferencias respecto a las necesidades del cliente. En las etapas de la metodología en cascada se va perdiendo la percepción inicial y las responsabilidades se diluyen y se envían hacia atrás.
+
+Las metodologías ágiles son de ayuda en problemas en los que el alcance no está establecido con claridad inicialmente.
+
+////
+***************************************************
+////
+.Objetivos
+
+* Conocer los marcos de trabajo ágil Kanban y Scrum.
+* Aprender a crear tableros Kanban.
+* Conocer cómo optimizar procesos en Kanban.
+* Conocer los eventos, roles y artefactos Scrum y su importancia en el proceso Scrum.
+* Conocer el manifiesto ágil.
+* Conocer las prácticas Scrum aceptadas.
+* Entender las ventajas que puede aportar trabajar por sprints.
+* Aprender a crear historias de usuario.
+
+
+// Entrar en modo numerado de apartados
+:numbered:
+
+
+////
+***************************************************
+////
+
+## Qué hacen las metodologías ágiles
+
+Visualizan el proyecto sin detallarlo y entran en un ciclo de:
+
+1. Encontrar lo más importante (Ley de Pareto: El 20% de lo que realices va a generar el 80% de los resultados).
+1. Detallarlo y construirlo.
+1. Ponerlo a funcionar.
+
+Se trata de hacer un proyecto sin tratar de conocerlo todo desde el principio.
+
+[IMPORTANT]
+====
+Se fija el tiempo y el coste, pero el alcance va a ser variable.
+====
+
+Tras llegar a la fecha límite puede ocurrir que:
+
+* Se haya superado el alcance.
+* No se haya llegado al alcance, pero ya está funcionando y hay cosas poco importantes que no se han realizado.
+* Se haya llegado al alcance previsto. (No suele ocurrir).
+
+[NOTE]
+====
+* Se entregan resultados importantes desde el principio.
+* Trabajar en la motivación de las personas y que quieran hacer lo mejor para el proyecto. En metodologías tradicionales se hace pagar al equipo con su esfuerzo los errores en la planificación inicial.
+====
+
+Los marcos de trabajo ágiles conocidos y en los que nos centraremos son Kanban y Scrum, dedicando a este último la mayor parte de la atención.
+
+## Kanban
+
+Construye un tablero visual con tarjetas;:
+
+* Se identifican estados (por hacer, haciendo, pruebas, finalizado) que forman columnas
+* Se crean filas (por personas, por prioridad, por áreas, por clientes, ...)
+
+Kanban busca la mejora continua analizando la forma de trabajar y ver si es posibile introducir un cambio para mejorar la productividad.
+
+Si definimos máximos por columna evitamos cuellos de botella en un estado (optimizamos el equipo). Cuando se supera el máximo (acordado por el equipo), los miembros del equipo en otros estados se redistribuyen porque la prioridad ahora están en bajar el número de tarjetas del máximo para poder cerrar.
+
+image::kanban-maximos.jpg[]
+
+Si se resuelven 3 por día y entran 10 por día, en el Pendiente hay que restringir la entrada (p.e. por prioridades)
+
+Indicadores:
+
+* Lead time: Tiempo transcurrido desde que se creó la petición hasta que se resuelve.
+* Cycle time: Tiempo transcurrido desde que se inicia hasta que se resuelve.
+* Cuello de botella (mediante gráficos de flujo acumulado).
+
+[TIP]
+====
+Uso de imágenes de cada persona en las tarjetas para ver en dónde están los esfuerzos de cada miembro
+====
+
+### Diagrama de flujo acumulado
+
+Muestra dónde hay que concentrarse para optimizar el desarrollo del proyecto.
+
+Día a día se va haciendo esta tabla y se van llevando los datos a un gráfico. Si en el gráfico se van separando las líneas es un indicio del problema y da una pista de dónde hay que actuar.
+
+[width="100%",options="header,footer"]
+|====================
+|  Día |  Backlog |  Haciendo |  Pruebas |  Hecho 
+|  1   |  6       | 2         |  0       |  0     
+|  2   |  7       | 3         |  2       |  0     
+|  3   |  7       | 3         |  4       |  1     
+|  4   |  9       | 3         |  6       |  2     
+|  5   |  11      | 3         |  9       |  3     
+|====================
+
+Se ve que se van acumulando tareas en el Backlog. Una lectura inmediata sería que habría que priorizar la entrada.
+
+## Scrum
+
+Scrum es el enfoque más popular de metodologías ágiles. Suele ser usado en equipos entre 3 y 9 miembros.
+
+* Scrum tiene 5 **eventos** con una duración establecida: Sprint, Planificación del Sprint, Scrum diario, Revisión del Sprint y Retrospectiva del Sprint.
+* Scrum tiene 3 **roles**: Product Owner, Scrum Master y el Equipo de desarrollo.
+* Scrum usa 3 **artefactos**: Product Backlog, Sprint Backlog y el Incremento.
+
+### Eventos Scrum
+
+* Los proyectos se dividen en **Sprints**, iteraciones que suelen durar 30 días o menos.
+* Cada Sprint comienza con la **Planificación del Sprint**, una reunión en la que el equipo decide qué items (p.e. features) se incluyen en el Sprint Backlog, y las descompone en tareas para al menos la primera semana. El equipo estima la dificultad de cada historia. La cantidad de tareas del sprint se definen en base a su _velocidad_ (cantidad de puntos que sacan adelante por script).
+* El **Scrum diario** es una reunión en la que cada miembro del equipo cuenta a los demás qué ha hecho, qué va a hacer y si ven algún incoveniente en el camino.
+* El Product Owner invita a la **Revisión del Sprint** a los stakeholders clave y el equipo muestra el software funcionando y se discute el siguiente Sprint Backlog.
+* En la **Retrospectiva del Sprint** el equipo habla de lo que ha ido bien e identifica qué cosas específicas se deben mejorar.
+
+.La sesión de Refinamiento
+****
+Se trata de una reunión para tratar de pulir las próximas historias de los sprints. Se suele hacer a mitad del sprint. El equipo solicita mejor especificación, mayor detalle, …​ Dura unas 2 horas para un sprint de 15 días.
+****
+
+### Artefactos Scrum
+
+* El **Backlog** está compuesto de historias de usuario con mayor o menor nivel de detalle. Colocaremos arriba las más detalladas, que son las más prioiritarias. En cada momento, siempre se está realizando lo más importante.
+* El **Sprint backlog** contiene las _historias de usuario_ a resolver en el sprint.
+
+### Roles Scrum
+
+* El **Product Owner** se encarga de hablar con los clientes, identificar lo que necesitan y venir con las nuevas _feature_ que van a usar.
+* El **Scrum Master** ayuda a que todo salga bien hecho (comprueba que las historias de usuario están bien hechas, que traen criterios de aceptación, …​) y resuelve los impedimentos facilitando el trabajo y sus recursos.
+
+
+.El rol del Produt Owner
+****
+Es la Persona que determina qué es lo más importante.
+
+* Escribe buenas historias de usuario.
+* Detalla los criterios de aceptación de cada historia.
+* Aclara las historias con el equipo.
+* Prioriza el backlog.
+* Define los mínimos productos viables de cada proyecto.
+* No debe dar la sensación de que es un miembro de negocio y no tiene tiempo para el proyecto. **No basta que sepa mucho de negocio si no es capaz de darle tiempo al equipo**.
+* Sólo hay 1 product owner por equipo, que es el que maneja el backlog.
+****
+
+Una gran diferencia entre el desarrollo por etapas o hitos y Scrum es que en un proyecto típico las fases se planifican al principio del proyecto. En cambio, Scrum sólo se planifica en detalle el siguiente sprint. Scrum está centrado en la gestión del proyecto para que el desarrollo de producto se corresponda con lo que necesitan los usuarios.
+
+[TIP]
+====
+Una forma de comenzar a acercarse a Scrum es comenzar a hacer el Scrum diario o _daily_.
+====
+
+### Valores principales de Scrum
+
+* Individuos y sus interacciones vs. Procesos y herramientas.
+* Software funcionando vs. Documentación extensiva.
+* Colaboración con el cliente vs. Negociación contractual.
+* Responder a los cambios vs. Seguir el plan.
+
+### Manifiesto ágil
+
+Scrum nos habla de cambiar la mentalidad, pero, ¿cómo lo conseguimos? De esto se encarga el https://agilemanifesto.org/iso/es/principles.html[Manifiesto Agil]. Contiene una serie de valores y principios para comenzar a trabajar de forma diferente.
+
+* Satisfacer al cliente y entrega contínua.
+* Aceptamos el cambio y se aprovecha para dar más valor al cliente.
+* Entrega frecuente de software funcionando.
+* Responsables de negocio y desarrolladores trabajan juntos y mantienen un ritmo constante.
+* Individuos motivados a los que se le proporciona el entorno y el apoyo que necesitan.
+* Comunicación de información mediante conversaciones cara a cara.
+* El software funcionando es la medida principal de progreso.
+* La simplicidad es esencial evitando realizar lo que no se necesita.
+* Atención continua a la excelencia técnica y buen diseño.
+* Equipos autoorganizados, que son los que mejores arquitecturas desarrollan.
+* A intervalos regulares el equipo reflexiona sobre cómo ser más efectivo.
+
+Hay que comenzar a pensar en un equipo como un todo.
+
+image::scrum-rugby.jpg[]
+
+.Entregas frecuentes
+****
+Las entregas frecuentes favorecen la reacción a los cambios. Entregas con periodos muy amplios pueden suponer tirar o modificar mucho trabajo. En cambio, las entregas frecuentes permiten introducir cambios en una etapa temprana cuando todo es más fácil de resolver. A veces los requisitos cambian y a veces existen una falta de comprensión entre lo que se quiere y lo que se hace. _**Working software is the primary measure of progress**_.
+****
+
+## Planificación y estimación ágil. Prácticas Scrum aceptadas
+
+Se trata de un conjunto de prácticas que, si bien no forman parte técnicamente de Scrum, suelen usarse en los proyectos Scrum.
+
+### Historias de usuario y Puntos de historia
+
+Una historia de usuario es una descripción muy corta de algo específico que necesitan los usuarios. Las historias de usuario nos ayudan a capturar lo que los usuarios necesitan del software de forma que lo podamos ir construyendo en partes que pueden ir usando. 
+
+Los puntos de historia son una forma de decir cuánto esfuerzo será necesario para desarrollar una historia de usuario.
+
+#### División de historias de usuario en tareas
+
+No hay una fórmula mágica
+
+Historias a desarrollar:
+
+* Colocar losas en la cocina
+* Enlucir dormitorio principal
+* Poner luces en el apartamento
+
+División en tareas:
+
+* Colocar losas en la cocina
+	** Nivelar
+	** Conseguir materiales
+	** Hacer mezcla
+	** Poner losas
+* Enlucir dormitorio principal
+	** Alisar paredes
+	** Conseguir materiales
+	** Hacer mezcla
+	** Aplicar estuco
+	** Lijar
+* Poner luces en el apartamento
+	** Hacer huecos
+	** Comprar cables 
+	** Colocar cableado
+	** Comprar accesorios y bombillas
+	** Colocar accesorios y bombillas
+
+#### Tareas para aportar calidad
+
+* Pruebas unitarias
+* Interfaces
+* Pruebas de aceptación
+* Refactoring
+* Corrección de errores
+* Requisitos no funcionales:
+	* Rendimiento
+	* Escalabilidad
+	* Seguridad
+* Modificar documentación
+
+#### Estimación por puntos de historia
+
+Pensamos en dificultad, no en horas.
+
+1. Definir un pivote acordado para todo el equipo que actúa como base de medida para el resto del proyecto (el doble, la mitad o el triple de difícil).
+1. En el primer sprint no se fija un sprint backlog. Nos servirá para calcular la velocidad del equipo. Con la velocidad se establecerán la cantidad de puntos a asumir en un sprint. 
+
+[TIP]
+====
+Hablando por puntos y no por horas tenemos un método uniforme de estimación. Los más experimentados tardarán menos y los menos tardarán más. Estimar por horas estaría marcando a priori quién va a realizar la tarea.
+====
+
+**Los equipos se miden por puntos de historia por sprint**, cada uno a su ritmo y con sus conocimientos. A medida que se toma experiencia los miembros aumentan los puntos que pueden realizar por sprint.
+
+### Planning poker
+
+Los equipos de desarrollo usan el Planning poker para hacer que todos piensen cómo de grande es cada historia y cómo la construirán, y habrá que llegar a un acuerdo entre todos.
+
+El Product Owner comenta una historia de usuario. Cada miembro del equipo saca su carta. Si no hay consenso, mayor y menor exponen sus motivos y se vuelve a votar, repitiendo este proceso hasta que no haya consenso en torno a un valor. Se prohiben los comentarios en la estimación para no condicionar al resto.
+
+### Tableros de tareas
+
+Los tableros de tareas ayudan a tener una visión del progreso del sprint. Además, ofrecen una visión de qué está haciendo cada uno.
+
+### Gráfico de burndown
+
+Es una gran herramienta que ayuda a ver cuánto trabajo queda por hacer y proporciona un indicio de si se terminará todo el trabajo planificado para el sprint.
+
+image::burndown.png[]
+
+* Representa los puntos del sprint frente a los días del sprint.
+* Las historias más pequeñas favorecen gráficas más lineales y con poco saltos grandes y peligrosos.
+* Subidas en el burndown revelan una entrada de historias de usuario en un sprint en marcha. El product owner tiene que evitar esta situacion.
+* Los problemas encontrados deben salir en la retrospectiva.
+
+[TIP]
+====
+Un gráfico de burdown puede ayudar a mostrar historias de usuario demasiado grandes, poco detalladas (gráficas muy escalonadas) o product owners muy exigentes (nunca se consigue llegar a completar las historias de usuario).
+====
+
+## Beneficios de trabajar por sprints
+
+Se trabaja en cajas de tiempo en las que se va a:
+
+* Planificar qué se va a hacer.
+* Realizarlo en ese tiempo.
+* Entregar lo que se hizo.
+* Realizar una mejora para que vaya mejor en el sprint siguiente.
+
+Beneficios:
+
+* Obliga a priorizar constantemente (qué es lo más importante).
+* Establecer un límite de trabajo, lo que ayuda a concentrarnos en lo que tenemos que hacer de forma inmediata, sin preocuparnos por todo el proyecto
+* Muestra el progreso.
+* Evitar el perfeccionismo innecesario.
+* Mejora la previsibilidad al ser un conjunto de funcionalidades y tiempo reducido.
+
+## Tipos de equipos
+
+* Equipo invidualista: Cada uno resuelve una tarea, la resuelve y se encuentran al final. Si sólo colocamos a los especialistas, el conocimiento no se comparte y tenemos un problema en bajas, vacaciones, ...
+* Equipo coordinado: El equipo se autoorganiza para conseguir el resultado del sprint y se consiguen distibuir las tareas para conseguir el sprint en el día pactado.
+
+.Equipos multifuncionales
+****
+Con una división convencional (front, back, operaciones, pruebas, arquitectura, QA), se tiende a funcionamientos independientes y aislados, cada uno con su backlog, métricas e intereses.
+
+Si un miembro de un área pide algo a otro miembro de otra área se puede encontrar con que le digan que lo sienten, pero que ahora eso no es su prioridad. Esta división origina problemas y para un sprint tendremos que incluir personas de diferentes áreas. El equipo ha de ser más:
+
+* autónomo
+* comprometido
+* podrá trabajar más en equipo
+
+[NOTE]
+====
+Se hacen equipos y se le van asignando proyectos conforme van llegando. No montamos los equipos en función del proyecto (esto haría que se disolviesen cuando están empezando a congeniar). **Es difícil pero es la forma**. Empezar con equipos piloto y vamos puliendo.
+====
+
+https://babel.es/es/blog/blog/enero-2018-(1)/spotify-y-las-metodologias-agiles[Organización ágil en Spotify]
+****
+
+## Product owner
+
+.El rol de Product Owner
+****
+Ben is the product owner.
+His job is to talk to clients, figure out what they need, and come up with new features that they’ll use. He might not have been developing code, but he worked hard on the project by talking to users, understanding what they needed, and working with the rest of the team to help them understand those needs and build working software.
+The Product Owner helps the team understand
+the users’ needs so they can build the most
+valuable product.
+The Product Owner works with the team every day to help them
+understand the features in the Product Backlog: what items are on it
+and why the users need them.
+****
+
+* Por qué es necesario: Supongamos un gran equipo (costoso, cualificado, ...), pero no está trabajando en lo más importante del proyecto o están trabajando en caprichos, o un equipo desmotivado porque trabajan en actividades poco motivadoras.
+* Objetivo: Lograr que el equipo se concentre en realizar lo más importante en cada sprint.
+* Perfil: Gran capacidad estratégica visualizando el futuro del proyecto, decidir qué se incluye y qué no en el proyecto (con capacidad de discutir con cargos altos), gran capacidad de comunicación (muy necesaria para tratar con el equipo), y que disfrute con su trabajo guiando el equipo. 
+* Responsabilidades: 
+	** Crear buenas historias de usuario y de forma priorizada.
+	** Definir un plan de versiones con los stakeholders.
+	** Tener claro el mínimo producto viable (Ley de Pareto del 80/20) con los stakeholders (los interesados en el proyecto).
+	** Tener total disponibilidad para aclarar dudas sobre el sprint. No hacer alusión a que ya está documentado, las historias las hice bien, ...
+	** Tiene que sentirse parte del equipo.
+	** Tienen que estar presente en las reuniones (planificación, reviews, retrospectiva, ...), pero no en la diaria.
+
+### Qué hace el product owner durante el sprint
+
+* El product owner organiza todas las peticiones que realizan los stakeholders
+* Crea historias de usuario con criterios de aceptación muy claros
+* Muestra las historias de usuario y el equipo elije las tareas del sprint
+* Interactúa con los stakeholders para conocer qué hay que hacer y los criterios de aceptación
+* Divide y prioriza las historias de usuario
+* En las retrospectivas asiste para aportar cómo mejorar el equipo y crear historias mejores
+
+### El anti product owner
+
+Deriva en que el proyecto no marche bien.
+
+* Tengo el conocimiento, sé mucho del tema, quién mejor que yo para expresarlo al equipo.
+* Voy con poco tiempo, pero hago lo que puedo.
+* Dejo que las historias de usuario las haga el Scrum Master.
+* No sé qué son los criterios de aceptación.
+* A veces no voy a la planificaciones, pero lo mando por mail.
+* No voy a la daily, pero me informan de ello y voy anotanto el progreso.
+* Mi equipo tiene que terminar todo, y si les toca trasnochar, es cosa de ellos.
+* Si surgen nuevas cosas en un sprint, se introducen si son importantes.
+* A la hora de estimar les digo que bajen porque estiman muy por encima.
+* En la planificación les digo quién es el más indicado para realizar cada cosa.
+* Alguna vez he tenido que hacer las historias de usuario rápidamente y luego durante el sprint les voy haciendo aclaraciones. Es que voy muy ocupado.
+* Si me piden cosas que no son importantes o son muy complicadas veo la mejor forma de introducirlas en el proyecto.
+
+**El Product Owner debe estar comprometido y volcado con el proyecto.**
+
+## El Scrum Master
+
+* Ayuda al equipo a entender y a hacer Scrum.
+* Ayuda al equipo de desarrollo, al Product Owner y al resto de la organización a hacer lo que cada uno tiene que hacer.
+* Elimina impedimentos.
+* Es un líder servicial no autoritario, mediador, no controlador.
+
+Influye en:
+
+* El equipo
+	** motivándolo.
+	** potenciando lo que cada uno puede aportar.
+	** manteniéndolos unidos y contentos.
+	** En la reunión diaria haciendo que se traten los problemas que están surgiendo, lo que se tiene qué hacer en el día y cómo afrontarlo, no los avances de cada uno.
+* El product owner
+	** Cómo crear historias de usuario.
+	** Cómo comunicar con el equipo.
+	** Cómo obtener información de los stakeholders.
+	** Cómo gestionar el backlog.
+* Stakeholders (los que necesitan el proyecto)
+    ** Entender Scrum.
+    ** Trabajar con el equipo.
+* Sprint
+	** Usa las retrospectivas identificando riesgos y ver cómo solucionarlos (p.e. sólo una persona conoce un tema -> difundir conocimiento).
+	** Qué está fallando.
+	** Cómo estimar en la planificación.
+	** Cómo gestionar/sacar tiempo para el proyecto.
+* Empresa
+
+.Diferencias entre Product Owner y Scrum Master
+****
+Son roles complementarios y deben ser diferentes personas:
+
+Product owner
+
+* Persona con carácter capaz de decir que NO a la gente de negocio. 
+* Toma las importantes y descarta las no importantes.
+* Debe ser bueno en sacar información. 
+
+Scrum Master
+
+* Agradable, tranquilo, motivador y muy observador para ver qué es necesario y qué hay que mejorar.
+* Debe dominar Scrum
+****
+
+## Cómo crear historias de usuario
+
+Las 3 C's de las historias de usuario:
+
+* Card o Tarjeta: Contiene una indicación para recordar lo que hay que decir antes de comenzar el sprint
+* Criterios de aceptación: Indican si una historia de usuario está lista.
+	** El usuario debe introducir su login y pass.
+	** Si la sesión está inactiva durante 5 minutos, se cancelará la sesión.
+* Conversación: Se hace en la planificación para aclarar todo lo necesario.
+
+.Intercambiar armas en carrera (2 puntos)
+====
+**Como** jugador  (_el rol_),
+
+**Quiero** cambiar entre las armas disponibles mientras corro (_Acción que el usuario realizará en el software_)
+
+**De forma que** no tenga que parar para ver mi inventario (_por qué el usuario quiere esa característica_).
+====
+
+.Evaluar servicio
+====
+**Como** pasajero
+
+**Quiero** calificar al chófer
+
+**Para que** se conozca la calidad de cada chófer.
+====
+
+.Ordenar por precio
+====
+**Como** comprador online
+
+**Quiero** un botón para ordenar por precio
+
+**Para que** pueda elegir entre los productos más baratos.
+====
+
+.Obtener historial de ventas por ciudades
+====
+**Como** jefe de ventas
+
+**Quiero** ver el histórico de ventas por ciudades
+
+**Para que** pueda probar nuestras estrategias de venta por ciudad e ir modificándolas.
+====
+
+### Propiedades _INVEST_ de las historias:
+
+* Independiente. Una historia de usuario debe ser indepdendiente de otra para poder funcionar. Así no tendremos que esperar en un sprint a que termine una tarea para poder hacer otra (no se puede enlucir y pintar en el mismo sprint).
+* Negociable: Durante la planificación se aportarán más detalles, se reducirá. En general se discutirá.
+* Valiosa: Debe generar valor.
+* Estimable: El equipo debe poder establecer la dificultad (respecto a otras) para poder establecer las historias a incluir en un sprint.
+* Small: Una tarea que ocupe todo un sprint conduce a un sprint inacabado por no terminar la tarea.
+* Testeable: Para que pueda ser aceptada.
+
+## Cómo iniciar un proyecto
+
+Normalmente, se pide de más y con muchos detalles caprichosos. Se trata de establecer *Qué necesitamos*
+
+Haremos un:
+
+* Mapa de impacto (para qué es, a quiénes se va a impactar/quiénes impactan en el proyecto, impactos del proyecto, qué se va a hacer en el proyecto).
+* Mapping de historias de usuario: Permite establecer por dónde vamos a empezar.
+
+### Mapa de impacto
+
+* Participan: Personas con poder de decisión sobre el proyecto, las que van a realizar el proyecto y las que conocen el tema del proyecto.
+* Para qué: (SMART - Specific, Medible, Alcanzable, Relevante, Temporal). Qué va y qué no va en el proyecto.
+
+.Creación de un Mapa de impacto
+====
+* Para qué: Para disminuir un 98% los perros callejeros en Almería en Diciembre de 2019
+* A quién:
+	** Perros (a quién va dirigido)
+	** Veterinarios (quién nos puede ayudar)
+* Impactos:
+	** A perros: Brindándoles hogar
+	** A veterinarios: Disminuyendo los nacimientos en las calles
+* Qué:
+	** Brindándoles hogar: 
+		*** Ir a centros comerciales mostrando cachorros jugando
+		*** Publicando un video en TV y redes sociales sobre "los perros buscan su hogar"
+	** Disminuyendo nacimientos:
+		*** Cupones solidarios que ayudan a sufragar los gastos
+		*** Esterilizacion de perros callejeros
+====
+
+### Mapping de historias de usuario
+
+1. Desglosar lo que hay que hacer.
+1. Priorizar lo más importante para el proyecto.
+1. Establecer las versiones de lo que iremos entregando.
+
+A modo de ilustración partimos de un mapa de impacto de una tienda online.
+
+image::mapa-de-impacto-de-tienda-online.jpg[]
+
+Se sacan los _qué_ (son las historias de usuario):
+
+* Perfil
+* Vender
+* Mis anunucios
+* Comprar
+* Ubicación
+* Búsqueda
+* Visualización
+
+Estarán el Product Owner, Scrum Master, equipo de desarrollo, Stakeholders y usuarios finales.
+
+#### Desglosar
+
+Evitamos hacer los _qués_ completos. Mejor, desglosarlos y en cada sprint entregar una parte de cada uno. (Comparación con el sushi -cada vez que comes, llevas un poco de todo).
+
+* perfil
+    ** registro básico
+	** agregar foto
+	** agregar mi intereses
+	** conexión con facebook
+* comprar
+	** Validar compra con pago en efectivo
+	** Validar compra con tarjeta de crédito
+* vender
+	** formulario de venta básico
+	** formulario de venta detallado
+* mis anuncios
+	** ver anuncios publicados
+	** editar mis anuncios
+* ubicación
+	** conocer la ubicación del comprador
+* búsqueda
+	** búsqueda por palabra clave
+	** ordenar de menor a mayor precio
+	** ordenar de mayor a menor precio
+	** búsqueda por ciudad
+	** búsqueda por ubicación
+* visualización
+	** Ver en formato lista
+	** Ver en formato cuadrícula
+
+Aparecerán cosas muy importantes, menos importantes, caprichos, .... luego hay que priorizar.
+
+#### Priorizar
+
+Técnica MoSCoW para priorizar:
+
+* MUST: Tiene que estar
+* SHOULD: Debería estar
+* COULD: Podría estar
+* WON'T: Descartado de momento
+
+Se hace que los asistentes coloquen estas etiquetas en las tareas advirtiendo que si todo es MUST o SHOULD se repetirá el juego hasta que queden distribuida de una forma más o menos uniforme. Poco a poco van renunciando.
+
+En función del tiempo y del presupuesto establecemos hasta dónde nos comprometemos. Es adecir, fijamos el alcance.
+
+#### Definir versiones
+
+Definimos las tareas de cada historia que van a ir en cada versión. La primera define el PMV (producto mínimo viable). Con el PMV podemos obtener feedback e ir sacando beneficios y usuarios usándolo.
+
+Para cada versión/entrega/release se harán varios sprints y ya se tienen las historias de usuario. Por supuesto, con la marcha del proyecto podrán ir surgiendo nuevas funcionalidades o cambios sobre las existentes. **Con esto ya podemos montar un backlog**.
+
+## Los eventos de Scrum
+
+### Sprint Planning
+
+El equipo se reune al principio de cada iteración para planificar qué features van a desarrollar. Sólo se debe incluir el trabajo que pueden llegar a desarrollar en la iteración. Las iteraciones ocurren en un espacio de tiempo. Si alguien observa que hay demasiado trabajo planificado, se llevarán features a la iteración siguiente. En cada iteración habrá que centrarse en las que tengan mayor valor.
+
+Toma como entrada un buen backlog realizado por el Product Owner. En la parte de arriba del backlog está lo más detallado, más claro y priorizado.
+
+Objetivos:
+
+* A qué nos comprometemos en el sprint.
+* Cómo haremos para que al final del sprint todo esté listo y funcionando.
+
+Duración:
+
+* 4 horas para un sprint de 15 días.
+
+Asistentes: 
+
+* Scrum Master.
+* Product Owner (no ordena al equipo sobre el backlog).
+* Equipo (son los que se comprometen).
+ 
+Proceso:
+
+* Leer la historia y explicar su descripción. Puede llamar a stakeholders si lo explican mejor.
+* El equipo saca cartas para definir los puntos de historia.
+* Seguir los dos pasos anteriores para decidir cuántos puntos se incluyen (nos basamos en los 3 sprints anteriores).
+* Pasar las historias al Sprint backlog.
+* El equipo evalúa las historias y se autoorganiza para hacer la entrega del sprint.
+
+Se divide en dos partes:
+
+* En la primera mitad se decide el QUE se hará en el sprint. Se crea el Sprint Goal (basta con una o dos frases) que indica lo que se hará en el sprint. Todos trabajan juntos sacando elementos del Backlog de producto para colocarlos en el Backlog del Sprint con todo lo que se va a construir en el Sprint.
+* En la segunda mitad se discute el COMO se hará el trabajo. Se descompone cada item del Backlog en tareas que duren un día o menos. Puede ser que termine la reunión antes, pero ya se tendrá trabajo para los primeros días del sprint.
+
+.Retrasar las decisiones lo máximo posible
+****
+_No termino de entender cómo puede llegar a funcionar la planificación del sprint. ¿Cómo se puede llegar a tener una reunión de planificación con un tiempo preestablecido? Además, parece que normalmente se acaba el tiempo de la reunión antes de terminar de planificar todo el trabajo. ¿No llevará un plan a medias a proyectos a medias?_
+
+La respuesta es no, porque los equipos ágiles toman decisiones lo más tarde posible.
+****
+
+### Scrum diario (_Daily_)
+
+Reunión diaria que nos va ayudando a que los objetivos se puedan ir cumpliendo y se pueda hacer la entrega al final del sprint.
+
+Duración:
+
+* 15 minutos.
+
+Asistentes: 
+
+* Scrum Master.
+* Equipo de desarrollo.
+
+Proceso:
+
+**Todos** responden a:
+
+* Qué hice ayer para alcanzar el Sprint Goal?
+* Qué voy hacer hoy para ayudar a conseguir el Sprint Goal?
+* Hay obstáculos que me impidan conseguir el Sprint Goal?
+
+[TIP]
+====
+* Todos escuchan con atención, y para esto todo tiene que ser muy breve.
+* Resolver las dudas fuera de la reunión.
+* Hacer la reunión de pie.
+* Tener de fondo el tablero y el gráfico de burndown.
+* Ceñirse estrictamente a los 15 minutos.
+* Si el conocimiento está individualizado, tomar medidas para diversificar el conocimiento.
+====
+
+[CAUTION]
+====
+No es para rendir cuentas. Es una reunión de equipo.
+====
+
+.La reunión diaria no es una pérdida de tiempo
+****
+Es una reunión breve de equipo sobre lo que se está resolviendo y las dificultades a las que se están enfrentando. Se pasa de una planificación impuesta a un trabajo en común con el objetivo de colaborar entre todos para que el proyecto alcance con éxito el siguiente hito. Esto también evita ver los problemas y las necesidades de cambio demasiado tarde. El equipo se convierte en algo más efectivo. No se trata de dar el parte del estado, sino de comprender cómo está yendo el proyecto y reunirse a diario para ver cómo trabajar mejor en el proyecto. Cuando surge un problema todo el equipo escucha para tratar de dar una solución.
+****
+
+### Revision del Sprint
+
+* Duración: 2 horas.
+
+* Asistentes: Todo el equipo, incluyendo a stakeholders.
+
+El equipo muestra todo lo que ha hecho y recibe el feedback. También se discute sobre el Product Backlog de forma que ya se vaya conociendo lo que se va a trabajar en el próximo Sprint.
+
+.Qué hacer ante una parada urgente
+****
+Una parada urgente es algo anecdótico, que no se debe hacer. Llegado el caso se haría una revisión sobre los items resueltos del Sprint y se devolverían al Backlog de producto los items del Sprint Backlog que no se hayan completado, dejándolos disponibles para el sprint siguiente.
+****
+
+### Retrospectiva del Sprint
+
+* Duración: 1,5 horas.
+
+* Asistentes: Todo el equipo, incluyendo a stakeholders.
+
+Se indica todo lo que ha ido bien y todo lo que se puede mejorar. Participan todos, y Product Owner y Scrum Master tendrán una lista de mejoras a realizar.
+
+#### Claves para una retro exitosa
+
+1. Prepara la agenda y un lugar que rompa con la cotidianidad diaria.
+2. Identifica la necesidad del equipo para enfocarla en una dirección a priori (retros para ganar confianza en equipos nuevos, que se llegue a los inconvenientes que han surgido en el sprint).
+3. Elegir tipo de retrospectiva (para equipos que no avanza, se puede usar el barco).
+
++
+[NOTE]
+====
+https://plans-for-retrospectives.com[Ideas para planificar buenas retros]
+====
+
+4. Preparar los elementos (post-its, figura del barco, ...).
+5. Hablar de lo bueno, lo malo, ...
+6. Identificar qué vamos a mejorar (basta con 1 ó 2. Más en la próxima).
+7. Establecer plan de acción para mejorar (traer una charla sobre ...).
+8. Quién va a ser responsable del plan de acción (quién va a traer al ponente).
+9. Cuándo lo va a realizar (para supervisar que se haga).
+10. Hacer en primer lugar: Evaluar si se trabajó algo sobre los acuerdos de la última retro. Si no se hizo nada, se repite la retro hasta que se avance.
+
+## Scrum vs Kanban
+
+**Scrum**
+
+* Se puede visualizar el proyecto e ir entregándolo por entregas.
+* Necesitamos equipos multifuncionales.
+* Hay sprints.
+* Tenemos roles (Product Owner, Scrum Master).
+* Gráfica de burndown.
+
+**Kanban**
+
+* Proyectos en lo que no se puede planificar.
+* Necesitamos disminuir el tiempo de entregar a los usuarios.
+* Definimos los estados por los que pasa lo que hace el equipo para poder visualizar la información de lo que se está realizando. Buscamos que el proceso de entrega se cada vez más fluido.
+* No hay roles.
+* Diagrama de flujo acumulado.
+* **El objetivo es reducir el lead time**.
+* Puede organizar el tablero por filas (por prioridad, por personas, ...) para mejorar la visualización.
+* Puede usar mínimos y máximos por columna para evitar acumulaciones en un estado y todo fluya bien.
+
+**Scrumban**
+
+* Incorporar la review de Scrum a Kanban para mostrar avances del proyecto al cliente.
+* Incorporar un Product Owner para evitar que dediquemos tiempo a cosas no importantes.
+* Incorporar la retrospectiva para mejorar viendo problemas y proponiendo soluciones.
